@@ -50,12 +50,16 @@ button {
   height: 40px;
   font-size: 18px;
   color: white;
-  background-color: #ccc;
+  background-color: rgb(76, 172, 255);
   border: none;
   border-radius: 3px;
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+button:hover {
+  background-color: rgb(254, 111, 111);
 }
 
 .win {
