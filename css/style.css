@@ -78,3 +78,7 @@ body {
 #play-now:hover {
   background-color: #0056b3;
 }
+
+span {
+  color: white;
+}

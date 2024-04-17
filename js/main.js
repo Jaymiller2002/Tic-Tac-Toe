@@ -5,24 +5,22 @@ const boxes = document.querySelectorAll(".box");
 let playNowCount = 0;
 let restartCount = 0;
 
-playNowButton.addEventListener("click", function() {
-    playNowCount++;
-    console.log("Play Now button clicked " + playNowCount + " times.");
-});
+//playNowButton.addEventListener("click", function() {
+  //  playNowCount++;
+    //console.log("Play Now button clicked " + playNowCount + " times.");
+//});
 
 restartButton.addEventListener("click", function() {
     restartCount++;
     console.log("Restart Game button clicked " + restartCount + " times.");
 });
 
-boxes.forEach(function(box, index) {
-    box.addEventListener("click", function() {
-    console.log("Box " + index + " clicked.");
-});
-    // Initialize variables to keep track of the game state
+// Initialize variables to keep track of the game state
 let currentPlayer = 'X'; // Player X starts the game
 let gameBoard = ['', '', '', '', '', '', '', '', '']; // Represents the game board, initially empty
 let gameActive = true; // Flag to indicate if the game is still active
+let playerXWins = 0; // Counter for player X wins
+let playerOWins = 0; // Counter for player O wins
 
 // Function to check if a player has won
 const checkWin = () => {
@@ -61,6 +59,15 @@ const handleMove = (boxIndex) => {
     if (checkWin()) {
         document.getElementById('status').innerText = `Player ${currentPlayer} wins!`;
         gameActive = false; // Set game to inactive
+        
+        // Update win counters
+        if (currentPlayer === 'X') {
+            playerXWins++;
+            document.getElementById('playerXWins').innerText = `Player X Wins: ${playerXWins}`;
+        } else {
+            playerOWins++;
+            document.getElementById('playerOWins').innerText = `Player O Wins: ${playerOWins}`;
+        }
         return;
     }
 
@@ -76,14 +83,6 @@ const handleMove = (boxIndex) => {
     document.getElementById('status').innerText = `Player ${currentPlayer}'s turn`; // Update status message
 };
 
-// Add click event listeners to each box
-const boxes = document.querySelectorAll('.box');
-boxes.forEach((box, index) => {
-    box.addEventListener('click', () => {
-        handleMove(index); // Call handleMove function when a box is clicked
-    });
-});
-
 // Function to restart the game
 const restartGame = () => {
     // Reset game state variables
@@ -96,9 +95,34 @@ const restartGame = () => {
     boxes.forEach((box) => {
         box.innerText = '';
     });
+    
+    // Clear local storage
+    localStorage.removeItem('ticTacToeGameState');
 };
 
 // Add click event listener to the restart button
 document.getElementById('restart').addEventListener('click', restartGame);
 
+// Add click event listeners to each box
+boxes.forEach((box, index) => {
+    box.addEventListener('click', () => {
+        handleMove(index); // Call handleMove function when a box is clicked
+    });
+});
+
+// Initialize the game state from local storage when the page loads
+window.addEventListener('DOMContentLoaded', () => {
+    const storedGameState = localStorage.getItem('ticTacToeGameState');
+    if (storedGameState) {
+        const { savedCurrentPlayer, savedGameBoard, savedGameActive } = JSON.parse(storedGameState);
+        currentPlayer = savedCurrentPlayer;
+        gameBoard = savedGameBoard;
+        gameActive = savedGameActive;
+        
+        // Update the UI to reflect the stored game state
+        document.getElementById('status').innerText = `Player ${currentPlayer}'s turn`;
+        savedGameBoard.forEach((value, index) => {
+            document.getElementsByClassName('box')[index].innerText = value;
+        });
+    }
 });
