@@ -18,6 +18,7 @@ restartButton.addEventListener("click", function() {
 boxes.forEach(function(box, index) {
     box.addEventListener("click", function() {
     console.log("Box " + index + " clicked.");
+});
     // Initialize variables to keep track of the game state
 let currentPlayer = 'X'; // Player X starts the game
 let gameBoard = ['', '', '', '', '', '', '', '', '']; // Represents the game board, initially empty
@@ -99,5 +100,5 @@ const restartGame = () => {
 
 // Add click event listener to the restart button
 document.getElementById('restart').addEventListener('click', restartGame);
-});
+
 });
