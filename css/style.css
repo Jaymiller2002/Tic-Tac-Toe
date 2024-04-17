@@ -56,3 +56,20 @@ body {
 #restart:hover {
   background-color: #0056b3;
 }
+
+#play-now {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  text-align: center;
+  top: 2px;
+}
+
+#play-now:hover {
+  background-color: #0056b3;
+}
