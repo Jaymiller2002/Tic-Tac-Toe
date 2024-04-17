@@ -8,11 +8,15 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-image: url(https://t3.ftcdn.net/jpg/05/99/53/58/360_F_599535831_pwQFVG0qtf6ksLXeVTnUwFMvoW5H0WiS.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #app {
   text-align: center;
   margin-bottom: 20px;
+  color: white;
 }
 
 .container {
@@ -41,6 +45,7 @@ body {
 #status {
   font-size: 18px;
   margin-bottom: 10px;
+  color: white;
 }
 
 #restart {
@@ -54,7 +59,7 @@ body {
 }
 
 #restart:hover {
-  background-color: #0056b3;
+  background-color: #fd5d5d;
 }
 
 #play-now {
