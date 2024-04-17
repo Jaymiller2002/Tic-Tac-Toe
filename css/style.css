@@ -1,3 +1,59 @@
-h1 {
-  color: pink;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+  width: 100vh;
+  height: 100vh;
+  background-color: aquamarine;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #ccc;
+  box-shadow: 0 0 0 2px #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+#status {
+  padding: 20px;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+button {
+  width: 150px;
+  height: 40px;
+  font-size: 18px;
+  color: white;
+  background-color: #ccc;
+  border: none;
+  border-radius: 3px;
+}
+
+.win {
+  animation: winAnimation ease-in-out 1s;
+}
+
+@keyframes winAnimation {
+  0%{background-color: aqua;}
+  100%{background-color: blue;}
 }
