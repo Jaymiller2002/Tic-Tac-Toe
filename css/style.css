@@ -40,7 +40,7 @@ body {
 
 .box:hover {
   z-index: 1;
-  background-color: #e0e0e0;
+  background-color: #d6d6d6;
 }
 
 #status {
