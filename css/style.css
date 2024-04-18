@@ -82,3 +82,15 @@ body {
 span {
   color: white;
 }
+
+@media screen and (min-width: 215px) {
+  .container {
+    width: auto;
+  }
+  .box {
+    width: auto;
+  }
+  body{
+    background-position: center;
+  }
+}
