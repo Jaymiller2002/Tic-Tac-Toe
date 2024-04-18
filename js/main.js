@@ -114,6 +114,7 @@ const restartGame = () => {
     
     // Clear local storage
     localStorage.removeItem('ticTacToeGameState');
+    //console.log(localStorage);
 };
 
 // Add click event listener to the restart button
