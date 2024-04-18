@@ -1,3 +1,4 @@
+// DOMs
 const playNowButton = document.getElementById("play-now");
 const restartButton = document.getElementById("restart");
 const boxes = document.querySelectorAll(".box");
