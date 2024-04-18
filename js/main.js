@@ -97,7 +97,7 @@ const handleMove = (boxIndex) => {
 // Function to restart the game
 const restartGame = () => {
     // Reset game state variables
-    currentPlayer = 'X'; // Reset to player X
+    currentPlayer = 'O'; // Reset to player O
     gameBoard = ['', '', '', '', '', '', '', '', '']; // Clear the game board
     gameActive = true; // Set game to active
     document.getElementById('status').innerText = `Player ${currentPlayer}'s turn`; // Update status message
