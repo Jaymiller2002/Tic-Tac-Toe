@@ -8,18 +8,21 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-image: url(https://img.freepik.com/free-photo/nature-beauty-silhouettes-against-majestic-skies-generative-ai_188544-9749.jpg?size=626&ext=jpg&ga=GA1.1.553209589.1713398400&semt=ais);
+  /*background: linear-gradient(90deg, rgb(164, 28, 164), rgb(43, 43, 168));*/
+  /*background-image: url(https://img.freepik.com/free-photo/nature-beauty-silhouettes-against-majestic-skies-generative-ai_188544-9749.jpg?size=626&ext=jpg&ga=GA1.1.553209589.1713398400&semt=ais);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover;*/
 }
 
 #app {
+  z-index: 1;
   text-align: center;
   margin-bottom: 20px;
   color: white;
 }
 
 .container {
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(3, 60px);
   grid-template-rows: repeat(3, 60px);
@@ -27,6 +30,7 @@ body {
 }
 
 .box {
+  z-index: 1;
   background-color: #fff;
   border: 2px solid #ccc;
   display: flex;
@@ -39,16 +43,19 @@ body {
 }
 
 .box:hover {
+  z-index: 1;
   background-color: #e0e0e0;
 }
 
 #status {
+  z-index: 1;
   font-size: 18px;
   margin-bottom: 10px;
   color: white;
 }
 
 #restart {
+  z-index: 1;
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -59,6 +66,7 @@ body {
 }
 
 #restart:hover {
+  z-index: 1;
   background-color: #ba59ff;
 }
 
@@ -80,7 +88,14 @@ body {
 }*/
 
 span {
+  z-index: 1;
   color: white;
+}
+
+video{
+  position: absolute;
+  object-fit: cover;
+  z-index: 0;
 }
 
 @media screen and (min-width: 215px) {
