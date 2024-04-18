@@ -4,10 +4,15 @@ const boxes = document.querySelectorAll(".box");
 
 let playNowCount = 0;
 let restartCount = 0;
+// Went back and added random to randomize who goes first
+// Function to randomly select the starting player
+const getRandomStartingPlayer = () => {
+    return Math.random() < 0.5 ? 'X' : 'O'; // Randomly select 'X' or 'O' with equal probability
+};
 
 // Event Listeners
 // These event listeners track clicks on the "Play Now" 
-//and "Restart Game" buttons respectively.
+// and "Restart Game" buttons respectively.
 
 ////playNowButton.addEventListener("click", function() {
   //  playNowCount++;
@@ -20,7 +25,7 @@ restartButton.addEventListener("click", function() {
 });
 
 // Initialize variables to keep track of the game state
-let currentPlayer = 'X'; // Player X starts the game
+let currentPlayer; // Player who starts the game will be determined randomly
 let gameBoard = ['', '', '', '', '', '', '', '', '']; // Represents the game board, initially empty
 let gameActive = true; // Flag to indicate if the game is still active
 let playerXWins = 0; // Counter for player X wins
@@ -97,7 +102,7 @@ const handleMove = (boxIndex) => {
 // Function to restart the game
 const restartGame = () => {
     // Reset game state variables
-    currentPlayer = 'O'; // Reset to player O
+    currentPlayer = getRandomStartingPlayer(); // Randomly select the starting player
     gameBoard = ['', '', '', '', '', '', '', '', '']; // Clear the game board
     gameActive = true; // Set game to active
     document.getElementById('status').innerText = `Player ${currentPlayer}'s turn`; // Update status message
@@ -135,5 +140,9 @@ window.addEventListener('DOMContentLoaded', () => {
         savedGameBoard.forEach((value, index) => {
             document.getElementsByClassName('box')[index].innerText = value;
         });
+    } else {
+        // If no stored game state, randomly select the starting player
+        currentPlayer = getRandomStartingPlayer();
+        document.getElementById('status').innerText = `Player ${currentPlayer}'s turn`;
     }
 });

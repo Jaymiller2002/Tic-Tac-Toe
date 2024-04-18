@@ -94,3 +94,15 @@ span {
     background-position: center;
   }
 }
+
+@media screen and (min-height: 300px) {
+  .container {
+    width: auto;
+  }
+  .box {
+    width: auto;
+  }
+  body{
+    background-position: center;
+  }
+}
