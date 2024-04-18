@@ -5,10 +5,14 @@ const boxes = document.querySelectorAll(".box");
 let playNowCount = 0;
 let restartCount = 0;
 
-//playNowButton.addEventListener("click", function() {
+// Event Listeners
+// These event listeners track clicks on the "Play Now" 
+//and "Restart Game" buttons respectively.
+
+////playNowButton.addEventListener("click", function() {
   //  playNowCount++;
     //console.log("Play Now button clicked " + playNowCount + " times.");
-//});
+////});
 
 restartButton.addEventListener("click", function() {
     restartCount++;
@@ -24,25 +28,32 @@ let playerOWins = 0; // Counter for player O wins
 
 // Function to check if a player has won
 const checkWin = () => {
-    // Define winning conditions (indexes of winning combinations)
+
+    // Define Winning Combinations
+    // Predefined winning combinations on the game board
+
     const winningConditions = [
         [0, 1, 2], [3, 4, 5], [6, 7, 8], // Horizontal
         [0, 3, 6], [1, 4, 7], [2, 5, 8], // Vertical
         [0, 4, 8], [2, 4, 6]              // Diagonal
     ];
 
-    // Check each winning condition
+    // Check Win Function
+
     for (let condition of winningConditions) {
         const [a, b, c] = condition;
-        // If all three positions are marked with the same symbol (X or O), a player wins
+
+        // Checks if any of the winning combinations
+        // have the same symbol ('X' or 'O') in all three positions
         if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
-            return true; // Return true if a player has won
+            return true; // If a winning combination is found, return true
         }
     }
-    return false; // Return false if no winning condition is met
+    return false; // Return false if no winning combination is found
 };
 
-// Function to handle a player's move
+// Handle Move Function
+// Handles the player's move when clicking on a box in the game board
 const handleMove = (boxIndex) => {
     // If the box is already filled or the game is not active, do nothing
     if (gameBoard[boxIndex] !== '' || !gameActive) {
