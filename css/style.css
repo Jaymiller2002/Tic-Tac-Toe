@@ -71,6 +71,11 @@ span {
   color: white;
 }
 
+span:hover {
+  color: #ba59ff;
+  cursor: pointer;
+}
+
 video{
   width: 100%;
   height: 100%;
