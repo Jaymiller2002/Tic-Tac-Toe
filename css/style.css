@@ -41,7 +41,8 @@ body {
 
 .box:hover {
   z-index: 1;
-  background-color: #d6d6d6;
+  background-color: #010101;
+  background: linear-gradient(to bottom, rgb(185, 85, 248), rgb(250, 124, 35));
 }
 
 #status {
