@@ -6,7 +6,7 @@ const boxes = document.querySelectorAll(".box");
 let playNowCount = 0;
 let restartCount = 0;
 
-// Went back and added random to randomize who goes first
+
 // Function to randomly select the starting player
 // Randomly select 'X' or 'O' with equal probability
 const getRandomStartingPlayer = () => {
