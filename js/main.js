@@ -5,13 +5,15 @@ const boxes = document.querySelectorAll(".box");
 
 let playNowCount = 0;
 let restartCount = 0;
+
 // Went back and added random to randomize who goes first
 // Function to randomly select the starting player
+// Randomly select 'X' or 'O' with equal probability
 const getRandomStartingPlayer = () => {
-    return Math.random() < 0.5 ? 'X' : 'O'; // Randomly select 'X' or 'O' with equal probability
+    return Math.random() < 0.5 ? 'X' : 'O'; 
 };
 
-// Event Listeners
+// Event Listener for restart
 // These event listeners track clicks on the "Play Now" 
 // and "Restart Game" buttons respectively.
 
@@ -19,13 +21,14 @@ const getRandomStartingPlayer = () => {
   //  playNowCount++;
     //console.log("Play Now button clicked " + playNowCount + " times.");
 ////});
-
+//Tracks clicks of Restart button
 restartButton.addEventListener("click", function() {
     restartCount++;
     console.log("Restart Game button clicked " + restartCount + " times.");
 });
 
 // Initialize variables to keep track of the game state
+
 let currentPlayer; // Player who starts the game will be determined randomly
 let gameBoard = ['', '', '', '', '', '', '', '', '']; // Represents the game board, initially empty
 let gameActive = true; // Flag to indicate if the game is still active
@@ -59,7 +62,8 @@ const checkWin = () => {
 };
 
 // Handle Move Function
-// Handles the player's move when clicking on a box in the game board
+// Handles the player's move when clicking on a box
+// in the game board
 const handleMove = (boxIndex) => {
     // If the box is already filled or the game is not active, do nothing
     if (gameBoard[boxIndex] !== '' || !gameActive) {
