@@ -65,7 +65,7 @@ const checkWin = () => {
 // Handles the player's move when clicking on a box
 // in the game board
 const handleMove = (boxIndex) => {
-    // If the box is already filled or the game is not active, do nothing
+    // checks if the box is already filled or if the game is not active, do nothing
     if (gameBoard[boxIndex] !== '' || !gameActive) {
         return;
     }
@@ -76,7 +76,7 @@ const handleMove = (boxIndex) => {
     // Update the UI to show the player's symbol in the clicked box
     document.getElementsByClassName('box')[boxIndex].innerText = currentPlayer;
 
-    // Check if the game is won after the move
+    // Check if the game is won after each move
     if (checkWin()) {
         document.getElementById('status').innerText = `Player ${currentPlayer} wins!`;
         gameActive = false; // Set game to inactive
